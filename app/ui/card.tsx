@@ -46,7 +46,7 @@ export function Card({
       <h3 className="font-bold ">{card.name}</h3>
       <p className="text-gray-800 text-sm">{card.description}</p>
       <div className="flex flex-row justify-between">
-        <h3 className="font-bold">{card.price}$</h3>
+        <h3 className="font-bold">${card.price}</h3>
         <button
           className="p-1 bg-[#F6C90E] rounded-full"
           onClick={

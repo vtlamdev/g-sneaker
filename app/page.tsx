@@ -4,8 +4,8 @@ import CartOrder from "./ui/cartOrder";
 
 export default function Home() {
   return (
-    <div className=" md:h-screen h-auto flex justify-center items-center relative">
-      <div className="flex flex-col overflow-y-auto overflow-x-hidden md:overflow-hidden md:flex-row gap-10 md:gap-2 p-8 md:p-0 z-10">
+    <div className=" md:h-screen h-auto flex justify-center items-center relative bg-gray-50">
+      <div className="flex flex-col overflow-y-auto overflow-x-hidden md:overflow-hidden md:flex-row gap-10 md:gap-16 p-8 md:p-0 z-10">
         <Products></Products>
         <CartOrder></CartOrder>
       </div>

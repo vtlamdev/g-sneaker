@@ -2,7 +2,7 @@ import Image from "next/image";
 import WrapperCard from "./card";
 export default function Products() {
   return (
-    <div className="w-[300px] md:h-[450px] h-[600px] bg-white rounded-3xl flex flex-col p-6 gap-3 relative">
+    <div className="w-[300px] md:h-[450px] h-[600px] bg-white rounded-3xl flex flex-col p-6 gap-3 relative shadow-2xl">
       <div className="flex flex-col z-10">
         <Image
           src={"/assets/nike.png"}
