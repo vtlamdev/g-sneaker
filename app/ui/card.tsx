@@ -31,13 +31,16 @@ export function Card({
   const dispatch = useDispatch();
   return (
     <div className="w-full flex flex-col gap-3">
-      <div className="h-auto rounded-3xl">
+      <div
+        className={`h-auto rounded-3xl  flex justify-center items-center`}
+        style={{ background: card.color }}
+      >
         <Image
           src={card.image}
           alt="image product"
           width={300}
           height={500}
-          className={`bg-[${card.color}] rounded-xl`}
+          className={` rounded-xl -rotate-[25deg] `}
         ></Image>
       </div>
       <h3 className="font-bold ">{card.name}</h3>
@@ -55,7 +58,7 @@ export function Card({
           }
         >
           {card.isLoading ? (
-            <span>Add to Cart</span>
+            <span className="font-bold text-sm p-2">Add to Cart</span>
           ) : (
             <Image
               src={"/assets/check.png"}

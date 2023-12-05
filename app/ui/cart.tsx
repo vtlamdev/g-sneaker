@@ -34,14 +34,18 @@ export function Cart({
   const dispatch = useDispatch();
   return (
     <div className="grid grid-cols-6 w-full  gap-1 mt-2">
-      <div className="col-span-2 flex justify-center text-center bg-red-400 rounded-full ">
+      <div className="col-span-2 h-[100px] relative flex justify-center items-center">
         <Image
           src={cart.image}
           alt="produce image"
-          width={100}
-          height={100}
-          className="rounded-full "
+          width={200}
+          height={200}
+          className="rounded-full -rotate-[25deg] absolute"
         ></Image>
+        <div
+          className="w-16 h-16 rounded-full"
+          style={{ background: cart.color }}
+        ></div>
       </div>
 
       <div className="col-span-4 flex flex-col justify-center">
@@ -50,22 +54,22 @@ export function Cart({
         <div className="flex flex-row justify-between items-center ">
           <div className="flex flex-row justify-center items-center gap-4">
             <Image
-              className="rounded-full cursor-pointer"
+              className="rounded-full cursor-pointer bg-gray-300 p-2 "
               src={"/assets/minus.png"}
-              width={20}
-              height={20}
-              alt="trash image"
+              width={22}
+              height={22}
+              alt="minus image"
               onClick={() => {
                 dispatch(dicrease(cart));
               }}
             ></Image>
             <span>{cart.amount}</span>
             <Image
-              className="rounded-full cursor-pointer"
+              className="rounded-full cursor-pointer bg-gray-300 p-2"
               src={"/assets/plus.png"}
-              width={20}
-              height={20}
-              alt="trash image"
+              width={22}
+              height={22}
+              alt="plus image"
               onClick={() => {
                 dispatch(increase(cart));
               }}

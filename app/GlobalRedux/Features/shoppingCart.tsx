@@ -33,12 +33,19 @@ export const cartSlice = createSlice({
     removeItem: (state, action: PayloadAction<cartType>) => {
       const Item = action.payload;
       state.cartItems = state.cartItems.filter((data) => data.id !== Item.id);
+      state.products.map((item) =>
+        item.id === Item.id
+          ? (item.isLoading = true)
+          : (item.isLoading = item.isLoading)
+      );
     },
     addToCard: (state, action: PayloadAction<cartType>) => {
       const Item = action.payload;
       const existingItem = state.cartItems.find((item) => item.id === Item.id);
       state.products.map((item) =>
-        item.id === Item.id ? (item.isLoading = false) : (item.isLoading = true)
+        item.id === Item.id
+          ? (item.isLoading = false)
+          : (item.isLoading = item.isLoading)
       );
 
       if (existingItem) {
@@ -57,12 +64,15 @@ export const cartSlice = createSlice({
     dicrease: (state, action: PayloadAction<cartType>) => {
       const Item = action.payload;
       const existingItem = state.cartItems.find((data) => data.id === Item.id);
-      state.products.map((item) =>
-        item.id === Item.id ? (item.isLoading = true) : (item.isLoading = false)
-      );
+
       if (existingItem) {
         existingItem.amount -= 1;
         if (existingItem.amount === 0) {
+          state.products.map((item) =>
+            item.id === Item.id
+              ? (item.isLoading = true)
+              : (item.isLoading = item.isLoading)
+          );
           state.cartItems = state.cartItems.filter(
             (data) => data.id !== Item.id
           );
